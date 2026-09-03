@@ -8,6 +8,7 @@ import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
 import { DoctorsModule } from './doctors/doctors.module'; 
 import { AppointmentsModule } from './appointments/appointments.module';
+import { ServicesModule } from './services/service.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -25,7 +26,7 @@ import { AppointmentsModule } from './appointments/appointments.module';
       },
     ]),
     UserModule,
-    DoctorsModule,AppointmentsModule
+    DoctorsModule,AppointmentsModule,ServicesModule
   ],
   controllers: [AppController],
   providers: [AppService, {
