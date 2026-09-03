@@ -1,4 +1,5 @@
 import { IsBoolean, IsInt, IsOptional, IsString, MinLength } from "class-validator";
+import { Type } from "class-transformer";
 
 export class CreateDoctorDto {
   @IsString()
@@ -14,10 +15,12 @@ export class CreateDoctorDto {
   bio?: string;
 
   @IsOptional()
+  @Type(() => Number)
   @IsInt()
   order?: number;
 
   @IsOptional()
+  @Type(() => Boolean)
   @IsBoolean()
   isActive?: boolean;
 }
@@ -37,11 +40,13 @@ export class UpdateDoctorDto {
   @IsString()
   bio?: string;
 
-  @IsOptional()
+   @IsOptional()
+  @Type(() => Number)
   @IsInt()
   order?: number;
 
   @IsOptional()
+  @Type(() => Boolean)
   @IsBoolean()
   isActive?: boolean;
-}
+}

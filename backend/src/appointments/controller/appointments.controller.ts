@@ -1,20 +1,7 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Put,
-  Delete,
-  Body,
-  Param,
-  Query,
-} from '@nestjs/common';
+import {Controller,Get,Post,Put,Delete,Body,Param,Query,} from '@nestjs/common';
 import { Throttle } from '@nestjs/throttler';
 import { AppointmentsService } from '../service/appointments.service';
-import {
-  CreateAppointmentDto,
-  UpdateStatusDto,
-  QueryAppointmentDto,
-} from '../dto/appointments.dto';
+import {CreateAppointmentDto,UpdateStatusDto,QueryAppointmentDto,} from '../dto/appointments.dto';
 import { JwtAuthGuard } from '../../common/guards/jwtauth.gourds';
 
 @Controller('appointments')

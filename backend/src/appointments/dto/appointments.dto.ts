@@ -1,13 +1,4 @@
-import {
-  IsDateString,
-  IsEmail,
-  IsEnum,
-  IsMongoId,
-  IsNotEmpty,
-  IsOptional,
-  IsPhoneNumber,
-  IsString,
-} from 'class-validator';
+import { IsDateString, IsEmail, IsEnum, IsMongoId, IsNotEmpty, IsOptional, IsString, IsPhoneNumber, } from 'class-validator';
 import { AppointmentStatus } from '../../common/enum/enum';
 
 export class CreateAppointmentDto {
@@ -18,9 +9,8 @@ export class CreateAppointmentDto {
   @IsEmail()
   email!: string;
 
-  @IsPhoneNumber()
-  phone!: string;
-
+  @IsPhoneNumber('ET')
+  phone: string;
   @IsOptional()
   @IsMongoId()
   preferredDoctor?: string;

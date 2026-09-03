@@ -17,6 +17,10 @@ export class DoctorsService {
   ) {}
 
   async create(createDoctorDto: CreateDoctorDto,photo: Express.Multer.File,): Promise<DoctorResponse> {
+    const user = await this.doctorModel.findOne({ name: createDoctorDto.name });
+    if(user){
+      throw new BadRequestException("doctor name already exists");
+    }
     if (!photo) {
       throw new BadRequestException("doctor photo is required");
     }
