@@ -19,7 +19,7 @@ export class TestimonialsController {
     return this.testimonialsService.findOne(id);
   }
 
-  @UseGuards(JwtAuthGuard)
+  @JwtAuthGuard()
   @Post()
   @UseInterceptors(FileInterceptor('avatar'))
   async create(
@@ -29,7 +29,7 @@ export class TestimonialsController {
     return this.testimonialsService.create(createTestimonialDto, avatar);
   }
 
-  @UseGuards(JwtAuthGuard)
+ @JwtAuthGuard()
   @Put(':id')
   @UseInterceptors(FileInterceptor('avatar'))
   async update(
@@ -39,8 +39,7 @@ export class TestimonialsController {
   ) {
     return this.testimonialsService.update(id, updateTestimonialDto, avatar);
   }
-
-  @UseGuards(JwtAuthGuard)
+ @JwtAuthGuard()
   @Delete(':id')
   async remove(@Param('id') id: string) {
     return this.testimonialsService.remove(id);

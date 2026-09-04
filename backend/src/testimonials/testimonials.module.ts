@@ -1,14 +1,14 @@
 import { Module } from "@nestjs/common";
 import { MongooseModule } from "@nestjs/mongoose";
-import { Testimonial, TestimonialSchema } from "../";
-import { TestimonialsController } from "./testimonials.controller";
-import { TestimonialsService } from "./testimonials.service";
-import { CommonModule } from "../common/common.module";
+import { Testimonial, TestimonialSchema } from "../testimonials/schema/testimonials.schema";
+import { TestimonialsController } from "../testimonials/controller/testimonials.controller";
+import { TestimonialsService } from "../testimonials/service/testimonials.service";
+import { CloudinaryModule } from "../common/cloudinary/cloudinary.module";
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: Testimonial.name, schema: TestimonialSchema }]),
-    CommonModule,
+    CloudinaryModule,
   ],
   controllers: [TestimonialsController],
   providers: [TestimonialsService],

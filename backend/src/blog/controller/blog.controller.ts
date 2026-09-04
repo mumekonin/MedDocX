@@ -16,7 +16,7 @@ export class BlogController {
     return this.blogService.findAllPublished();
   }
 
-  @UseGuards(JwtAuthGuard)
+  @JwtAuthGuard()
   @Get('all')
   async findAllForAdmin() {
     return this.blogService.findAllForAdmin();
@@ -27,13 +27,13 @@ export class BlogController {
     return this.blogService.findBySlug(slug);
   }
 
-  @UseGuards(JwtAuthGuard)
+  @JwtAuthGuard()
   @Get(':id')
   async findOne(@Param('id') id: string) {
     return this.blogService.findOne(id);
   }
 
-  @UseGuards(JwtAuthGuard)
+  @JwtAuthGuard()
   @Post()
   @UseInterceptors(FileInterceptor('coverImage'))
   async create(
@@ -43,7 +43,7 @@ export class BlogController {
     return this.blogService.create(createBlogDto, coverImage);
   }
 
-  @UseGuards(JwtAuthGuard)
+ @JwtAuthGuard()
   @Put(':id')
   @UseInterceptors(FileInterceptor('coverImage'))
   async update(
@@ -54,7 +54,7 @@ export class BlogController {
     return this.blogService.update(id, updateBlogDto, coverImage);
   }
 
-  @UseGuards(JwtAuthGuard)
+  @JwtAuthGuard()
   @Delete(':id')
   async remove(@Param('id') id: string) {
     return this.blogService.remove(id);

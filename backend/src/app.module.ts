@@ -9,6 +9,7 @@ import { APP_GUARD } from '@nestjs/core';
 import { DoctorsModule } from './doctors/doctors.module'; 
 import { AppointmentsModule } from './appointments/appointments.module';
 import { ServicesModule } from './services/service.module';
+import { TestimonialsModule } from './testimonials/testimonials.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -26,7 +27,10 @@ import { ServicesModule } from './services/service.module';
       },
     ]),
     UserModule,
-    DoctorsModule,AppointmentsModule,ServicesModule
+    DoctorsModule,
+    AppointmentsModule,
+    ServicesModule,
+    TestimonialsModule
   ],
   controllers: [AppController],
   providers: [AppService, {
