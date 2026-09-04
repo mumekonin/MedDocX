@@ -3,3 +3,8 @@ export enum AppointmentStatus {
   CONFIRMED = 'confirmed',
   CANCELLED = 'cancelled',
 }
+
+export enum TestimonialRole {
+  VISITOR = 'Visitor',
+  PATIENT = 'Patient',
+}
