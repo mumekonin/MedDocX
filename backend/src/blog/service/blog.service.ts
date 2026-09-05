@@ -32,6 +32,7 @@ export class BlogService {
       slug,
       coverImageUrl: uploadResult.url,
       coverImagePublicId: uploadResult.publicId,
+      publishDate: new Date(),
     });
     const savedPost = await newPost.save();
 

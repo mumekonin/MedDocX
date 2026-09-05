@@ -1,5 +1,4 @@
-import { IsBoolean, IsDateString, IsOptional, IsString, MinLength } from "class-validator";
-import { Transform } from "class-transformer";
+import { IsOptional, IsString, MinLength } from "class-validator";
 import { PartialType } from "@nestjs/mapped-types";
 export class CreateBlogDto {
   @IsString()
@@ -18,12 +17,6 @@ export class CreateBlogDto {
   @MinLength(2)
   author: string;
 
-  @IsDateString()
-  publishDate: string;
 
-  @IsOptional()
-  @Transform(({ value }) => value === 'true' || value === true)
-  @IsBoolean()
-  isPublished?: boolean;
 }
 export class UpdateBlogDto extends PartialType(CreateBlogDto) {}

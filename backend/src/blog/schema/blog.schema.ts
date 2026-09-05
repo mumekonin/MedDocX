@@ -24,11 +24,11 @@ export class BlogPost {
   @Prop({ required: true, trim: true })
   author: string;
 
-  @Prop({ default: false })
+  @Prop({ default: true })
   isPublished: boolean;
 
-  @Prop({ required: true })
-  publishDate: Date;
+  @Prop()
+  publishDate?: Date;
 }
 
 export const BlogSchema = SchemaFactory.createForClass(BlogPost);

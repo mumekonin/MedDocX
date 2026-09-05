@@ -10,6 +10,8 @@ import { DoctorsModule } from './doctors/doctors.module';
 import { AppointmentsModule } from './appointments/appointments.module';
 import { ServicesModule } from './services/service.module';
 import { TestimonialsModule } from './testimonials/testimonials.module';
+import { BlogModule } from './blog/blog.module';
+import { FaqsModule } from './faqs/faqs.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -30,7 +32,9 @@ import { TestimonialsModule } from './testimonials/testimonials.module';
     DoctorsModule,
     AppointmentsModule,
     ServicesModule,
-    TestimonialsModule
+    TestimonialsModule,
+    BlogModule,
+    FaqsModule
   ],
   controllers: [AppController],
   providers: [AppService, {
