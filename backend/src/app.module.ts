@@ -12,6 +12,7 @@ import { ServicesModule } from './services/service.module';
 import { TestimonialsModule } from './testimonials/testimonials.module';
 import { BlogModule } from './blog/blog.module';
 import { FaqsModule } from './faqs/faqs.module';
+import { ContactModule } from './contact/contact.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -34,7 +35,8 @@ import { FaqsModule } from './faqs/faqs.module';
     ServicesModule,
     TestimonialsModule,
     BlogModule,
-    FaqsModule
+    FaqsModule,
+    ContactModule
   ],
   controllers: [AppController],
   providers: [AppService, {
