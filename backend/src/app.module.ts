@@ -13,6 +13,8 @@ import { TestimonialsModule } from './testimonials/testimonials.module';
 import { BlogModule } from './blog/blog.module';
 import { FaqsModule } from './faqs/faqs.module';
 import { ContactModule } from './contact/contact.module';
+import { NewsletterModule } from './newsletter/newsletter.module';
+import { SiteStatsModule } from './siteStats/siteStats.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -36,7 +38,9 @@ import { ContactModule } from './contact/contact.module';
     TestimonialsModule,
     BlogModule,
     FaqsModule,
-    ContactModule
+    ContactModule,
+    NewsletterModule,
+    SiteStatsModule
   ],
   controllers: [AppController],
   providers: [AppService, {
