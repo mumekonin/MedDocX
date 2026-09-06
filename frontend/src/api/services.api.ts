@@ -12,3 +12,8 @@ export const getServices = async (): Promise<Service[]> => {
   const { data } = await axiosClient.get("/services");
   return data;
 };
+
+export const getServiceById = async (id: string): Promise<Service> => {
+  const { data } = await axiosClient.get(`/services/${id}`);
+  return data;
+};
