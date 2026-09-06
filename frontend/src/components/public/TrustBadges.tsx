@@ -1,8 +1,8 @@
-import { Award, Layers, HeartPulse, Clock } from "lucide-react";
+import { Plus, Sparkles, Layers, BedDouble, Clock } from "lucide-react";
 
 const badges = [
   {
-    icon: Award,
+    icon: Sparkles,
     title: "Trusted Expertise",
     description: "Experienced doctors delivering trusted care.",
   },
@@ -12,7 +12,7 @@ const badges = [
     description: "Complete care for every stage.",
   },
   {
-    icon: HeartPulse,
+    icon: BedDouble,
     title: "Patient-Centered",
     description: "Personalized care focused on you.",
   },
@@ -25,31 +25,33 @@ const badges = [
 
 const TrustBadges = () => {
   return (
-    <section className="bg-[#0a0a0f] px-6 py-16">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-10">
-          <span className="inline-block text-indigo-400 text-xs font-semibold uppercase tracking-wide mb-3">
-            ◆ Why Patients Trust Us
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
-            Trusted Care, Every{" "}
-            <span className="text-indigo-400">Step of the Way</span>
-          </h2>
-        </div>
+    <section className="bg-[#0a0a0f] px-6 py-20">
+      <div className="max-w-5xl mx-auto text-center">
+        <span className="inline-flex items-center gap-1.5 bg-white/5 border border-white/10 text-indigo-400 text-xs font-semibold uppercase tracking-wide px-4 py-1.5 rounded-full mb-5">
+          <Plus className="w-3.5 h-3.5" strokeWidth={2.5} />
+          Why Patients Trust Us
+        </span>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-12">
+          <span className="text-white">Trusted Care, Every</span>
+          <br />
+          <span className="text-indigo-400">Step of the Way</span>
+        </h2>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
           {badges.map((badge) => {
             const Icon = badge.icon;
             return (
               <div
                 key={badge.title}
-                className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 hover:border-indigo-500/40 hover:bg-white/[0.05] transition-colors"
+                className="bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-8 flex flex-col items-center hover:border-indigo-500/40 hover:bg-white/[0.05] transition-colors"
               >
-                <div className="w-11 h-11 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-4">
-                  <Icon className="w-5 h-5 text-indigo-400" strokeWidth={1.75} />
-                </div>
-                <h3 className="text-white font-semibold text-sm mb-1.5">{badge.title}</h3>
-                <p className="text-gray-400 text-xs leading-relaxed">{badge.description}</p>
+                <Icon className="w-8 h-8 text-indigo-400 mb-4" strokeWidth={1.5} />
+                <h3 className="text-white font-semibold text-sm">{badge.title}</h3>
+                <span className="block w-6 h-[2px] bg-indigo-500 rounded-full my-2.5" />
+                <p className="text-gray-400 text-xs leading-relaxed text-center">
+                  {badge.description}
+                </p>
               </div>
             );
           })}
