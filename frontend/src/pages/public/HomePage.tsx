@@ -7,6 +7,7 @@ import Specialists from "../../components/public/Specialists";
 import Testimonials from "../../components/public/Testimonials";
 import BlogPreview from "../../components/public/BlogPreview";
 import Faq from "../../components/public/Faq";
+import BookingCta from "../../components/public/BookingCta";
 import Footer from "../../components/public/Footer";
 
 const HomePage = () => {
@@ -22,6 +23,7 @@ const HomePage = () => {
         <Testimonials />
         <BlogPreview />
         <Faq />
+        <BookingCta />
       </main>
       <Footer />
     </div>
