@@ -2,10 +2,12 @@ import doctorImage from "../../assets/doctor.avif";
 import { Users } from "lucide-react";
 import { useSiteStats } from "../../hooks/useSiteStats";
 import { useDoctors } from "../../hooks/useDoctors";
+import { useBookingModal } from "../../context/BookingModalContext";
 
 const Hero = () => {
   const { data: stats } = useSiteStats();
   const { data: doctors } = useDoctors();
+  const { openModal } = useBookingModal();
 
   const avatarPreview = doctors?.slice(0, 4) ?? [];
 
@@ -55,7 +57,7 @@ const Hero = () => {
               Connecting patients with trusted doctors, hospitals, and personalized healthcare.
             </p>
 
-            <button className="mt-8 w-fit inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-medium pl-6 pr-3 py-2.5 rounded-full transition-all duration-200 shadow-lg shadow-blue-600/30">
+            <button onClick={openModal} className="mt-8 w-fit inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-medium pl-6 pr-3 py-2.5 rounded-full transition-all duration-200 shadow-lg shadow-blue-600/30">
               Book Appointment
               <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-sm font-bold">
                 ↗

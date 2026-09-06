@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
+import logo from "../../assets/logo.svg";
 import { Send, Phone, Mail, MapPin } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { useSubscribeNewsletter } from "../../hooks/useNewsletter";
@@ -47,14 +48,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-10">
         {/* Brand + newsletter */}
         <div>
-          <div className="flex items-center gap-2 text-white font-bold text-lg mb-4">
-            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center text-sm">
-              M
-            </span>
-            <span>
-              <span className="text-indigo-400">MedDoc</span>X
-            </span>
-          </div>
+          <img src={logo} alt="MedDocX" className="h-9 w-auto mb-4" />
           <p className="text-gray-400 text-sm leading-relaxed mb-5">
             Compassionate healthcare, trusted specialists, and modern medical care
             for every stage of life.

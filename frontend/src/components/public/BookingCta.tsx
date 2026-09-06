@@ -1,7 +1,8 @@
 import { Plus, ArrowUpRight, HeartPulse } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useBookingModal } from "../../context/BookingModalContext";
 
 const BookingCta = () => {
+  const { openModal } = useBookingModal();
   return (
     <section className="bg-[#0a0a0f] px-6 pb-20">
       <div className="max-w-5xl mx-auto relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 to-indigo-700 px-8 py-9 text-center">
@@ -33,15 +34,15 @@ const BookingCta = () => {
             <span className="h-px w-16 bg-white/25" />
           </div>
 
-          <Link
-            to="/#contact"
+          <button
+            onClick={openModal}
             className="inline-flex items-center gap-3 bg-[#0a0a0f] hover:bg-[#15151f] text-white text-sm font-medium pl-5 pr-1.5 py-1.5 rounded-full transition-colors"
           >
             Book Appointment
             <span className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center">
               <ArrowUpRight className="w-3.5 h-3.5" />
             </span>
-          </Link>
+          </button>
         </div>
       </div>
     </section>
