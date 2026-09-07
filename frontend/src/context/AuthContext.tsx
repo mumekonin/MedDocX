@@ -17,7 +17,7 @@ interface AuthContextValue {
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 
 const getMe = async (): Promise<AuthUser> => {
-  const { data } = await axiosClient.get("/users/me");
+  const { data } = await axiosClient.get("/user/me");
   return data;
 };
 
@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const { data: user, isLoading } = useQuery({
     queryKey: ["auth", "me"],
     queryFn: getMe,
-    retry: false, // don't retry on 401 — that just means "not logged in"
+    retry: false,
   });
 
   return (
@@ -44,7 +44,8 @@ export const useAuth = () => {
 export const useLogout = () => {
   const queryClient = useQueryClient();
   return async () => {
-    await axiosClient.post("/users/logout");
+    await axiosClient.post("/user/logout");
+    localStorage.removeItem("auth_token");
     queryClient.setQueryData(["auth", "me"], undefined);
   };
 };
