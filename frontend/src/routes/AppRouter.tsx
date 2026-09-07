@@ -11,6 +11,8 @@ import ProtectedRoute from "./ProtectedRoute";
 import DashboardPage from "../pages/admin/DashboardPage";
 import DoctorsPage from "../pages/admin/DoctorsPage";
 import AppointmentsPage from "../pages/admin/AppointmentsPage";
+import ServicesPage from "../pages/admin/ServicesPage";
+import BlogPage from "../pages/admin/BlogPage";
 const AppRouter = () => {
   return (
     <Routes>
@@ -26,6 +28,8 @@ const AppRouter = () => {
           <Route path="/admin/dashboard" element={<DashboardPage />} />
           <Route path="/admin/doctors" element={<DoctorsPage />} />
           <Route path="/admin/appointments" element={<AppointmentsPage />} />
+          <Route path="/admin/services" element={<ServicesPage />} />
+          <Route path="/admin/blog" element={<BlogPage />} />
         </Route>
       </Route>
     </Routes>
