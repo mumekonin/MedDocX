@@ -1,3 +1,15 @@
 @import "tailwindcss";
 
 @custom-variant light (&:is(.light, .light *));
+
+html,
+body,
+#root {
+  background-color: #0a0a0f;
+}
+
+html.light,
+html.light body,
+html.light #root {
+  background-color: #ffffff;
+}
