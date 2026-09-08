@@ -14,7 +14,7 @@ import { useAuth } from "../../context/AuthContext";
 const SettingsPage = () => {
   const { user } = useAuth();
   const { data: stats } = useSiteStats();
-  const { mutate: updateStats, isPending: isSavingStats, isSuccess: statsSaved } = useUpdateSiteStats();
+  const { mutate: updateStats, isPending: isSavingStats } = useUpdateSiteStats();
   const { mutate: updateProfile, isPending: isSavingProfile, isSuccess: profileSaved, isError: profileError } = useUpdateProfile();
   const { mutate: changePassword, isPending: isSavingPassword, isSuccess: passwordSaved, isError: passwordError, reset: resetPasswordMutation } = useChangePassword();
 

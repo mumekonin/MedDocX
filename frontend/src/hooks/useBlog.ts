@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import {getBlogPosts, getAllBlogPostsAdmin, getBlogPostBySlug, getBlogPostById,createBlogPost, updateBlogPost, deleteBlogPost, type BlogFormInput,
+import {getBlogPosts, getAllBlogPostsAdmin, getBlogPostBySlug, createBlogPost, updateBlogPost, deleteBlogPost, type BlogFormInput,
 } from "../api/blog.api";
 
 export const useBlogPosts = () =>

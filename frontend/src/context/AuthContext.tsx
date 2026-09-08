@@ -45,7 +45,6 @@ export const useLogout = () => {
   const queryClient = useQueryClient();
   return async () => {
     await axiosClient.post("/user/logout");
-    localStorage.removeItem("auth_token");
     queryClient.setQueryData(["auth", "me"], undefined);
   };
 };

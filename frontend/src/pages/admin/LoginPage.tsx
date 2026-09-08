@@ -34,8 +34,7 @@ const LoginPage = () => {
     setIsSubmitting(true);
 
     try {
-      const { token } = await login(email, password);
-      localStorage.setItem("auth_token", token);
+      await login(email, password);
       const { data: user } = await axiosClient.get("/user/me");
       queryClient.setQueryData(["auth", "me"], user);
       navigate(redirectTo, { replace: true });
