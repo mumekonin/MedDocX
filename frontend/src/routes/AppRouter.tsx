@@ -13,6 +13,11 @@ import DoctorsPage from "../pages/admin/DoctorsPage";
 import AppointmentsPage from "../pages/admin/AppointmentsPage";
 import ServicesPage from "../pages/admin/ServicesPage";
 import BlogPage from "../pages/admin/BlogPage";
+import TestimonialsPage from "../pages/admin/TestimonialsPage";
+import FaqsPage from "../pages/admin/FaqsPage";
+import ContactMessagesPage from "../pages/admin/ContactMessagesPage";
+import SettingsPage from "../pages/admin/SettingsPage";
+
 const AppRouter = () => {
   return (
     <Routes>
@@ -30,6 +35,10 @@ const AppRouter = () => {
           <Route path="/admin/appointments" element={<AppointmentsPage />} />
           <Route path="/admin/services" element={<ServicesPage />} />
           <Route path="/admin/blog" element={<BlogPage />} />
+          <Route path="/admin/testimonials" element={<TestimonialsPage />} />
+          <Route path="/admin/faqs" element={<FaqsPage />} />
+          <Route path="/admin/contact-messages" element={<ContactMessagesPage />} />
+          <Route path="/admin/settings" element={<SettingsPage />} />
         </Route>
       </Route>
     </Routes>
