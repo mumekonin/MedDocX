@@ -20,8 +20,8 @@ const TestimonialTable = () => {
     <div>
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
-          <h1 className="text-white text-2xl font-bold">Testimonials</h1>
-          <p className="text-gray-500 text-sm mt-1">Manage patient stories shown on your site.</p>
+          <h1 className="text-white light:!text-gray-900 text-2xl font-bold">Testimonials</h1>
+          <p className="text-gray-500 light:!text-gray-600 text-sm mt-1">Manage patient stories shown on your site.</p>
         </div>
         <button
           onClick={() => setIsCreating(true)}
@@ -31,16 +31,16 @@ const TestimonialTable = () => {
         </button>
       </div>
 
-      {isLoading && <p className="text-gray-500 text-sm">Loading testimonials...</p>}
+      {isLoading && <p className="text-gray-500 light:!text-gray-600 text-sm">Loading testimonials...</p>}
       {isError && <p className="text-red-400 text-sm">Couldn't load testimonials right now.</p>}
       {testimonials && testimonials.length === 0 && (
-        <p className="text-gray-500 text-sm">No testimonials added yet.</p>
+        <p className="text-gray-500 light:!text-gray-600 text-sm">No testimonials added yet.</p>
       )}
 
       {testimonials && testimonials.length > 0 && (
         <div className="grid md:grid-cols-2 gap-4">
           {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="bg-white/[0.03] border border-white/10 rounded-2xl p-5">
+            <div key={testimonial.id} className="bg-white/[0.03] light:!bg-gray-100 border border-white/10 light:!border-gray-200 rounded-2xl p-5">
               <div className="flex items-start justify-between gap-3 mb-3">
                 <div className="flex items-center gap-3">
                   <img
@@ -49,7 +49,7 @@ const TestimonialTable = () => {
                     className="w-11 h-11 rounded-full object-cover"
                   />
                   <div>
-                    <p className="text-white text-sm font-semibold">{testimonial.patientName}</p>
+                    <p className="text-white light:!text-gray-900 text-sm font-semibold">{testimonial.patientName}</p>
                     <p className="text-indigo-400 text-xs">{testimonial.role}</p>
                   </div>
                 </div>
@@ -64,20 +64,20 @@ const TestimonialTable = () => {
                 </span>
               </div>
 
-              <p className="text-gray-400 text-sm leading-relaxed line-clamp-3 mb-4">
+              <p className="text-gray-400 light:!text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4">
                 {testimonial.message}
               </p>
 
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setEditingTestimonial(testimonial)}
-                  className="flex-1 flex items-center justify-center gap-1.5 bg-white/5 hover:bg-white/10 text-gray-300 text-xs font-medium py-2 rounded-lg transition-colors"
+                  className="flex-1 flex items-center justify-center gap-1.5 bg-white/5 light:!bg-white hover:bg-white/10 light:hover:!bg-gray-200 text-gray-300 light:!text-gray-600 text-xs font-medium py-2 rounded-lg transition-colors"
                 >
                   <Pencil className="w-3.5 h-3.5" /> Edit
                 </button>
                 <button
                   onClick={() => setDeleteTarget(testimonial)}
-                  className="flex-1 flex items-center justify-center gap-1.5 bg-white/5 hover:bg-red-500/10 text-gray-300 hover:text-red-400 text-xs font-medium py-2 rounded-lg transition-colors"
+                  className="flex-1 flex items-center justify-center gap-1.5 bg-white/5 light:!bg-white hover:bg-red-500/10 text-gray-300 light:!text-gray-600 hover:text-red-400 text-xs font-medium py-2 rounded-lg transition-colors"
                 >
                   <Trash2 className="w-3.5 h-3.5" /> Delete
                 </button>
@@ -100,14 +100,14 @@ const TestimonialTable = () => {
       {deleteTarget && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setDeleteTarget(null)} />
-          <div className="relative bg-[#0d0d14] border border-white/10 rounded-2xl w-full max-w-sm p-6">
-            <h3 className="text-white font-bold mb-2">Delete Testimonial</h3>
-            <p className="text-gray-400 text-sm mb-6">
+          <div className="relative bg-[#0d0d14] light:!bg-white border border-white/10 light:!border-gray-200 rounded-2xl w-full max-w-sm p-6">
+            <h3 className="text-white light:!text-gray-900 font-bold mb-2">Delete Testimonial</h3>
+            <p className="text-gray-400 light:!text-gray-600 text-sm mb-6">
               Are you sure you want to delete the testimonial from{" "}
-              <span className="text-white">{deleteTarget.patientName}</span>? This can't be undone.
+              <span className="text-white light:!text-gray-900">{deleteTarget.patientName}</span>? This can't be undone.
             </p>
             <div className="flex items-center gap-3">
-              <button onClick={() => setDeleteTarget(null)} className="flex-1 bg-white/5 hover:bg-white/10 text-gray-300 text-sm font-medium py-2.5 rounded-full transition-colors">
+              <button onClick={() => setDeleteTarget(null)} className="flex-1 bg-white/5 light:!bg-gray-100 hover:bg-white/10 light:hover:!bg-gray-200 text-gray-300 light:!text-gray-600 text-sm font-medium py-2.5 rounded-full transition-colors">
                 Cancel
               </button>
               <button onClick={handleDeleteConfirm} disabled={isDeleting} className="flex-1 bg-red-600 hover:bg-red-500 text-white text-sm font-semibold py-2.5 rounded-full transition-colors disabled:opacity-50">

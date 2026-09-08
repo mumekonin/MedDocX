@@ -20,8 +20,8 @@ const ServiceTable = () => {
     <div>
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
-          <h1 className="text-white text-2xl font-bold">Services</h1>
-          <p className="text-gray-500 text-sm mt-1">Manage the medical services listed on your site.</p>
+          <h1 className="text-white light:!text-gray-900 text-2xl font-bold">Services</h1>
+          <p className="text-gray-500 light:!text-gray-600 text-sm mt-1">Manage the medical services listed on your site.</p>
         </div>
         <button
           onClick={() => setIsCreating(true)}
@@ -31,19 +31,19 @@ const ServiceTable = () => {
         </button>
       </div>
 
-      {isLoading && <p className="text-gray-500 text-sm">Loading services...</p>}
+      {isLoading && <p className="text-gray-500 light:!text-gray-600 text-sm">Loading services...</p>}
       {isError && <p className="text-red-400 text-sm">Couldn't load services right now.</p>}
       {services && services.length === 0 && (
-        <p className="text-gray-500 text-sm">No services added yet.</p>
+        <p className="text-gray-500 light:!text-gray-600 text-sm">No services added yet.</p>
       )}
 
       {services && services.length > 0 && (
         <>
           {/* Desktop table */}
-          <div className="hidden md:block bg-white/[0.03] border border-white/10 rounded-2xl overflow-hidden">
+          <div className="hidden md:block bg-white/[0.03] light:!bg-gray-100 border border-white/10 light:!border-gray-200 rounded-2xl overflow-hidden">
             <table className="w-full text-left">
               <thead>
-                <tr className="border-b border-white/10 text-gray-500 text-xs uppercase tracking-wide">
+                <tr className="border-b border-white/10 light:!border-gray-200 text-gray-500 light:!text-gray-600 text-xs uppercase tracking-wide">
                   <th className="px-5 py-3.5 font-medium">Order</th>
                   <th className="px-5 py-3.5 font-medium">Title</th>
                   <th className="px-5 py-3.5 font-medium">Icon</th>
@@ -53,10 +53,10 @@ const ServiceTable = () => {
               </thead>
               <tbody>
                 {services.map((service) => (
-                  <tr key={service.id} className="border-b border-white/5 last:border-0">
-                    <td className="px-5 py-3.5 text-gray-500 text-sm">{service.order}</td>
-                    <td className="px-5 py-3.5 text-white text-sm font-medium">{service.title}</td>
-                    <td className="px-5 py-3.5 text-gray-400 text-sm">{service.icon}</td>
+                  <tr key={service.id} className="border-b border-white/5 light:!border-gray-200 last:border-0">
+                    <td className="px-5 py-3.5 text-gray-500 light:!text-gray-600 text-sm">{service.order}</td>
+                    <td className="px-5 py-3.5 text-white light:!text-gray-900 text-sm font-medium">{service.title}</td>
+                    <td className="px-5 py-3.5 text-gray-400 light:!text-gray-600 text-sm">{service.icon}</td>
                     <td className="px-5 py-3.5">
                       <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${service.isActive ? "bg-green-500/10 text-green-400" : "bg-gray-500/10 text-gray-400"}`}>
                         {service.isActive ? "Active" : "Hidden"}
@@ -64,10 +64,10 @@ const ServiceTable = () => {
                     </td>
                     <td className="px-5 py-3.5">
                       <div className="flex items-center justify-end gap-2">
-                        <button onClick={() => setEditingService(service)} className="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-gray-400 hover:text-white transition-colors" aria-label="Edit">
+                        <button onClick={() => setEditingService(service)} className="w-8 h-8 rounded-lg bg-white/5 light:!bg-white hover:bg-white/10 light:hover:!bg-gray-200 flex items-center justify-center text-gray-400 light:!text-gray-600 hover:text-white light:hover:!text-gray-900 transition-colors" aria-label="Edit">
                           <Pencil className="w-3.5 h-3.5" />
                         </button>
-                        <button onClick={() => setDeleteTarget(service)} className="w-8 h-8 rounded-lg bg-white/5 hover:bg-red-500/10 flex items-center justify-center text-gray-400 hover:text-red-400 transition-colors" aria-label="Delete">
+                        <button onClick={() => setDeleteTarget(service)} className="w-8 h-8 rounded-lg bg-white/5 light:!bg-white hover:bg-red-500/10 flex items-center justify-center text-gray-400 light:!text-gray-600 hover:text-red-400 transition-colors" aria-label="Delete">
                           <Trash2 className="w-3.5 h-3.5" />
                         </button>
                       </div>
@@ -81,19 +81,19 @@ const ServiceTable = () => {
           {/* Mobile cards */}
           <div className="md:hidden space-y-3">
             {services.map((service) => (
-              <div key={service.id} className="bg-white/[0.03] border border-white/10 rounded-2xl p-4">
+              <div key={service.id} className="bg-white/[0.03] light:!bg-gray-100 border border-white/10 light:!border-gray-200 rounded-2xl p-4">
                 <div className="flex items-center justify-between mb-2">
-                  <p className="text-white text-sm font-medium">{service.title}</p>
+                  <p className="text-white light:!text-gray-900 text-sm font-medium">{service.title}</p>
                   <span className={`text-xs font-medium px-2.5 py-1 rounded-full shrink-0 ${service.isActive ? "bg-green-500/10 text-green-400" : "bg-gray-500/10 text-gray-400"}`}>
                     {service.isActive ? "Active" : "Hidden"}
                   </span>
                 </div>
-                <p className="text-gray-400 text-xs mb-3">Icon: {service.icon} · Order: {service.order}</p>
+                <p className="text-gray-400 light:!text-gray-600 text-xs mb-3">Icon: {service.icon} · Order: {service.order}</p>
                 <div className="flex items-center gap-2">
-                  <button onClick={() => setEditingService(service)} className="flex-1 flex items-center justify-center gap-1.5 bg-white/5 hover:bg-white/10 text-gray-300 text-xs font-medium py-2 rounded-lg transition-colors">
+                  <button onClick={() => setEditingService(service)} className="flex-1 flex items-center justify-center gap-1.5 bg-white/5 light:!bg-white hover:bg-white/10 light:hover:!bg-gray-200 text-gray-300 light:!text-gray-600 text-xs font-medium py-2 rounded-lg transition-colors">
                     <Pencil className="w-3.5 h-3.5" /> Edit
                   </button>
-                  <button onClick={() => setDeleteTarget(service)} className="flex-1 flex items-center justify-center gap-1.5 bg-white/5 hover:bg-red-500/10 text-gray-300 hover:text-red-400 text-xs font-medium py-2 rounded-lg transition-colors">
+                  <button onClick={() => setDeleteTarget(service)} className="flex-1 flex items-center justify-center gap-1.5 bg-white/5 light:!bg-white hover:bg-red-500/10 text-gray-300 light:!text-gray-600 hover:text-red-400 text-xs font-medium py-2 rounded-lg transition-colors">
                     <Trash2 className="w-3.5 h-3.5" /> Delete
                   </button>
                 </div>
@@ -116,14 +116,14 @@ const ServiceTable = () => {
       {deleteTarget && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setDeleteTarget(null)} />
-          <div className="relative bg-[#0d0d14] border border-white/10 rounded-2xl w-full max-w-sm p-6">
-            <h3 className="text-white font-bold mb-2">Delete Service</h3>
-            <p className="text-gray-400 text-sm mb-6">
-              Are you sure you want to delete <span className="text-white">{deleteTarget.title}</span>?
+          <div className="relative bg-[#0d0d14] light:!bg-white border border-white/10 light:!border-gray-200 rounded-2xl w-full max-w-sm p-6">
+            <h3 className="text-white light:!text-gray-900 font-bold mb-2">Delete Service</h3>
+            <p className="text-gray-400 light:!text-gray-600 text-sm mb-6">
+              Are you sure you want to delete <span className="text-white light:!text-gray-900">{deleteTarget.title}</span>?
               This can't be undone.
             </p>
             <div className="flex items-center gap-3">
-              <button onClick={() => setDeleteTarget(null)} className="flex-1 bg-white/5 hover:bg-white/10 text-gray-300 text-sm font-medium py-2.5 rounded-full transition-colors">
+              <button onClick={() => setDeleteTarget(null)} className="flex-1 bg-white/5 light:!bg-gray-100 hover:bg-white/10 light:hover:!bg-gray-200 text-gray-300 light:!text-gray-600 text-sm font-medium py-2.5 rounded-full transition-colors">
                 Cancel
               </button>
               <button onClick={handleDeleteConfirm} disabled={isDeleting} className="flex-1 bg-red-600 hover:bg-red-500 text-white text-sm font-semibold py-2.5 rounded-full transition-colors disabled:opacity-50">

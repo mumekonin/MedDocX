@@ -53,15 +53,15 @@ const DashboardPage = () => {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-white text-2xl font-bold">
+        <h1 className="text-white light:!text-gray-900 text-2xl font-bold">
           Welcome back{user?.name ? `, ${user.name}` : ""}
         </h1>
-        <p className="text-gray-500 text-sm mt-1">
+        <p className="text-gray-500 light:!text-gray-600 text-sm mt-1">
           Here's what's happening with MedDocX today.
         </p>
       </div>
 
-      {isLoading && <p className="text-gray-500 text-sm">Loading dashboard...</p>}
+      {isLoading && <p className="text-gray-500 light:!text-gray-600 text-sm">Loading dashboard...</p>}
       {isError && (
         <p className="text-red-400 text-sm">Couldn't load dashboard data right now.</p>
       )}
@@ -74,20 +74,20 @@ const DashboardPage = () => {
               <Link
                 key={card.label}
                 to={card.to}
-                className={`group bg-white/[0.03] border rounded-2xl p-6 transition-colors ${
+                className={`group bg-white/[0.03] light:!bg-gray-100 border rounded-2xl p-6 transition-colors ${
                   card.highlight && (card.value ?? 0) > 0
                     ? "border-indigo-500/30 hover:border-indigo-500/60"
-                    : "border-white/10 hover:border-white/20"
+                    : "border-white/10 light:!border-gray-200 hover:border-white/20 light:hover:!border-gray-300"
                 }`}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="w-11 h-11 rounded-xl bg-indigo-500/10 flex items-center justify-center">
                     <Icon className="w-5 h-5 text-indigo-400" strokeWidth={1.75} />
                   </div>
-                  <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-gray-400 transition-colors" />
+                  <ArrowRight className="w-4 h-4 text-gray-600 light:!text-gray-400 group-hover:text-gray-400 light:group-hover:!text-gray-600 transition-colors" />
                 </div>
-                <div className="text-white font-bold text-3xl">{card.value ?? 0}</div>
-                <div className="text-gray-400 text-sm mt-1">{card.label}</div>
+                <div className="text-white light:!text-gray-900 font-bold text-3xl">{card.value ?? 0}</div>
+                <div className="text-gray-400 light:!text-gray-600 text-sm mt-1">{card.label}</div>
               </Link>
             );
           })}

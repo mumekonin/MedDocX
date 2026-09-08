@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import {LayoutDashboard, Stethoscope, CalendarCheck, ListTree,Newspaper, Quote, HelpCircle, Mail, Settings, LogOut, Menu,X} from "lucide-react";
+import {LayoutDashboard, Stethoscope, CalendarCheck, ListTree,Newspaper, Quote, HelpCircle, Mail, Settings, LogOut, Menu,X, Moon, Sun} from "lucide-react";
 import logo from "../../../../assets/logo.svg";
 import { useLogout } from "../../../../context/AuthContext";
+import { useTheme } from "../../../../context/ThemeContext";
 
 const navItems = [
   { label: "Dashboard", to: "/admin/dashboard", icon: LayoutDashboard },
@@ -19,6 +20,7 @@ const navItems = [
 const AdminSidebar = () => {
   const logout = useLogout();
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   const handleLogout = async () => {
@@ -28,11 +30,11 @@ const AdminSidebar = () => {
 
   const sidebarContent = (
     <>
-      <div className="px-6 py-5 border-b border-white/10 flex items-center justify-between">
+      <div className="px-6 py-5 border-b border-white/10 light:!border-gray-200 flex items-center justify-between">
         <img src={logo} alt="MedDocX" className="h-8 w-auto" />
         <button
           onClick={() => setIsMobileOpen(false)}
-          className="md:hidden text-gray-400 hover:text-white"
+          className="md:hidden text-gray-400 light:!text-gray-600 hover:text-white light:hover:!text-gray-900"
           aria-label="Close menu"
         >
           <X className="w-5 h-5" />
@@ -51,7 +53,7 @@ const AdminSidebar = () => {
                 `flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                   isActive
                     ? "bg-indigo-500/10 text-indigo-400"
-                    : "text-gray-400 hover:text-white hover:bg-white/5"
+                    : "text-gray-400 light:!text-gray-600 hover:text-white light:hover:!text-gray-900 hover:bg-white/5 light:hover:!bg-gray-100"
                 }`
               }
             >
@@ -62,10 +64,19 @@ const AdminSidebar = () => {
         })}
       </nav>
 
-      <div className="px-3 py-4 border-t border-white/10">
+      <div className="px-3 py-4 border-t border-white/10 light:!border-gray-200 space-y-1">
+        <button
+          type="button"
+          onClick={toggleTheme}
+          aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+          className="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-sm font-medium text-gray-400 light:!text-gray-600 hover:text-white light:hover:!text-gray-900 hover:bg-white/5 light:hover:!bg-gray-100 transition-colors"
+        >
+          {theme === "dark" ? <Sun className="w-4.5 h-4.5" strokeWidth={1.75} /> : <Moon className="w-4.5 h-4.5" strokeWidth={1.75} />}
+          {theme === "dark" ? "Light mode" : "Dark mode"}
+        </button>
         <button
           onClick={handleLogout}
-          className="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-sm font-medium text-gray-400 hover:text-red-400 hover:bg-red-500/5 transition-colors"
+          className="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-sm font-medium text-gray-400 light:!text-gray-600 hover:text-red-400 hover:bg-red-500/5 transition-colors"
         >
           <LogOut className="w-4.5 h-4.5" strokeWidth={1.75} />
           Logout
@@ -77,11 +88,11 @@ const AdminSidebar = () => {
   return (
     <>
       {/* Mobile top bar */}
-      <div className="md:hidden fixed top-0 left-0 w-full z-40 bg-[#0a0a0f] border-b border-white/10 px-4 py-3 flex items-center justify-between">
+      <div className="md:hidden fixed top-0 left-0 w-full z-40 bg-[#0a0a0f] light:!bg-white border-b border-white/10 light:!border-gray-200 px-4 py-3 flex items-center justify-between">
         <img src={logo} alt="MedDocX" className="h-7 w-auto" />
         <button
           onClick={() => setIsMobileOpen(true)}
-          className="text-gray-300 hover:text-white"
+          className="text-gray-300 light:!text-gray-600 hover:text-white light:hover:!text-gray-900"
           aria-label="Open menu"
         >
           <Menu className="w-6 h-6" />
@@ -89,7 +100,7 @@ const AdminSidebar = () => {
       </div>
 
       {/* Desktop sidebar */}
-      <aside className="hidden md:flex w-64 shrink-0 bg-[#0a0a0f] border-r border-white/10 h-screen sticky top-0 flex-col">
+      <aside className="hidden md:flex w-64 shrink-0 bg-[#0a0a0f] light:!bg-white border-r border-white/10 light:!border-gray-200 h-screen sticky top-0 flex-col">
         {sidebarContent}
       </aside>
 
@@ -100,7 +111,7 @@ const AdminSidebar = () => {
             className="absolute inset-0 bg-black/70 backdrop-blur-sm"
             onClick={() => setIsMobileOpen(false)}
           />
-          <aside className="relative w-72 h-full bg-[#0a0a0f] border-r border-white/10 flex flex-col">
+          <aside className="relative w-72 h-full bg-[#0a0a0f] light:!bg-white border-r border-white/10 light:!border-gray-200 flex flex-col">
             {sidebarContent}
           </aside>
         </div>

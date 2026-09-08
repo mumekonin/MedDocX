@@ -1,7 +1,7 @@
 import axiosClient from "./axiosClient";
 
-export const login = async (email: string, password: string): Promise<{ message: string }> => {
-  const { data } = await axiosClient.post("/users/login", { email, password });
+export const login = async (email: string, password: string): Promise<{ token: string }> => {
+  const { data } = await axiosClient.post("/user/login", { email, password });
   return data;
 };
 
@@ -11,7 +11,7 @@ export interface UpdateProfileInput {
 }
 
 export const updateProfile = async (input: UpdateProfileInput) => {
-  const { data } = await axiosClient.put("/users/me", input);
+  const { data } = await axiosClient.put("/user/me", input);
   return data;
 };
 
@@ -21,6 +21,6 @@ export interface ChangePasswordInput {
 }
 
 export const changePassword = async (input: ChangePasswordInput): Promise<{ message: string }> => {
-  const { data } = await axiosClient.put("/users/me/password", input);
+  const { data } = await axiosClient.put("/user/me/password", input);
   return data;
 };

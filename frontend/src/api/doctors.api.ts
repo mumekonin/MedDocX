@@ -22,7 +22,10 @@ export const getDoctors = async (): Promise<Doctor[]> => {
   const { data } = await axiosClient.get("/doctors");
   return data;
 };
-
+export const getDoctorById = async (id: string): Promise<Doctor> => {
+  const { data } = await axiosClient.get(`/doctors/${id}`);
+  return data;
+};
 const buildDoctorFormData = (input: DoctorFormInput): FormData => {
   const formData = new FormData();
   formData.append("name", input.name);

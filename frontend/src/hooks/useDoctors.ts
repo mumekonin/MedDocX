@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { getDoctors, createDoctor, updateDoctor, deleteDoctor, type DoctorFormInput } from "../api/doctors.api";
+import { getDoctors, createDoctor, updateDoctor, deleteDoctor, type DoctorFormInput, getDoctorById } from "../api/doctors.api";
 
 export const useDoctors = () =>
   useQuery({ queryKey: ["doctors"], queryFn: getDoctors });
@@ -27,3 +27,9 @@ export const useDeleteDoctor = () => {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["doctors"] }),
   });
 };
+export const useDoctor = (id: string) =>
+  useQuery({
+    queryKey: ["doctors", id],
+    queryFn: () => getDoctorById(id),
+    enabled: !!id,
+  });

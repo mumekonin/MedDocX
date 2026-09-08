@@ -46,10 +46,10 @@ const BookingModal = () => {
         onClick={handleClose}
       />
 
-      <div className="relative bg-[#0d0d14] border border-white/10 rounded-2xl w-full max-w-lg max-h-[85vh] overflow-y-auto">
+      <div className="relative bg-[#0d0d14] light:!bg-white border border-white/10 light:!border-gray-200 rounded-2xl w-full max-w-lg max-h-[85vh] overflow-y-auto">
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+          className="absolute top-4 right-4 text-gray-400 light:!text-gray-600 hover:text-white light:hover:!text-gray-900 transition-colors"
           aria-label="Close"
         >
           <X className="w-5 h-5" />
@@ -59,8 +59,8 @@ const BookingModal = () => {
           {isSuccess ? (
             <div className="text-center py-8">
               <CheckCircle2 className="w-12 h-12 text-green-400 mx-auto mb-4" />
-              <h3 className="text-white font-bold text-lg mb-2">Request Received</h3>
-              <p className="text-gray-400 text-sm">
+              <h3 className="text-white light:!text-gray-900 font-bold text-lg mb-2">Request Received</h3>
+              <p className="text-gray-400 light:!text-gray-600 text-sm">
                 We've received your appointment request and will confirm it shortly by email.
               </p>
               <button
@@ -77,8 +77,8 @@ const BookingModal = () => {
                   <CalendarCheck className="w-5 h-5 text-indigo-400" />
                 </div>
                 <div>
-                  <h3 className="text-white font-bold text-lg">Book an Appointment</h3>
-                  <p className="text-gray-500 text-xs">We'll confirm by email shortly.</p>
+                  <h3 className="text-white light:!text-gray-900 font-bold text-lg">Book an Appointment</h3>
+                  <p className="text-gray-500 light:!text-gray-600 text-xs">We'll confirm by email shortly.</p>
                 </div>
               </div>
 
@@ -99,12 +99,12 @@ const BookingModal = () => {
                 />
 
                 <div>
-                  <label className="block text-gray-400 text-xs font-medium mb-1.5">
+                  <label className="block text-gray-400 light:!text-gray-600 text-xs font-medium mb-1.5">
                     Full Name
                   </label>
                   <input
                     {...register("patientName")}
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-indigo-500/50"
+                    className="w-full bg-white/5 light:!bg-gray-100 border border-white/10 light:!border-gray-200 rounded-lg px-3.5 py-2.5 text-sm text-white light:!text-gray-900 placeholder-gray-600 light:placeholder-gray-400 focus:outline-none focus:border-indigo-500/50"
                     placeholder="John Doe"
                   />
                   {errors.patientName && (
@@ -114,13 +114,13 @@ const BookingModal = () => {
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-gray-400 text-xs font-medium mb-1.5">
+                    <label className="block text-gray-400 light:!text-gray-600 text-xs font-medium mb-1.5">
                       Email
                     </label>
                     <input
                       type="email"
                       {...register("email")}
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-indigo-500/50"
+                      className="w-full bg-white/5 light:!bg-gray-100 border border-white/10 light:!border-gray-200 rounded-lg px-3.5 py-2.5 text-sm text-white light:!text-gray-900 placeholder-gray-600 light:placeholder-gray-400 focus:outline-none focus:border-indigo-500/50"
                       placeholder="you@example.com"
                     />
                     {errors.email && (
@@ -128,12 +128,12 @@ const BookingModal = () => {
                     )}
                   </div>
                   <div>
-                    <label className="block text-gray-400 text-xs font-medium mb-1.5">
+                    <label className="block text-gray-400 light:!text-gray-600 text-xs font-medium mb-1.5">
                       Phone
                     </label>
                     <input
                       {...register("phone")}
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-indigo-500/50"
+                      className="w-full bg-white/5 light:!bg-gray-100 border border-white/10 light:!border-gray-200 rounded-lg px-3.5 py-2.5 text-sm text-white light:!text-gray-900 placeholder-gray-600 light:placeholder-gray-400 focus:outline-none focus:border-indigo-500/50"
                       placeholder="+251912345678"
                     />
                     {errors.phone && (
@@ -143,12 +143,12 @@ const BookingModal = () => {
                 </div>
 
                 <div>
-                  <label className="block text-gray-400 text-xs font-medium mb-1.5">
+                  <label className="block text-gray-400 light:!text-gray-600 text-xs font-medium mb-1.5">
                     Preferred Doctor (optional)
                   </label>
                   <select
                     {...register("preferredDoctor")}
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500/50"
+                    className="w-full bg-white/5 light:!bg-gray-100 border border-white/10 light:!border-gray-200 rounded-lg px-3.5 py-2.5 text-sm text-white light:!text-gray-900 focus:outline-none focus:border-indigo-500/50"
                   >
                     <option value="">No preference</option>
                     {doctors?.map((doctor) => (
@@ -161,26 +161,26 @@ const BookingModal = () => {
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-gray-400 text-xs font-medium mb-1.5">
+                    <label className="block text-gray-400 light:!text-gray-600 text-xs font-medium mb-1.5">
                       Preferred Date
                     </label>
                     <input
                       type="date"
                       {...register("preferredDate")}
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500/50"
+                      className="w-full bg-white/5 light:!bg-gray-100 border border-white/10 light:!border-gray-200 rounded-lg px-3.5 py-2.5 text-sm text-white light:!text-gray-900 focus:outline-none focus:border-indigo-500/50"
                     />
                     {errors.preferredDate && (
                       <p className="text-red-400 text-xs mt-1">{errors.preferredDate.message}</p>
                     )}
                   </div>
                   <div>
-                    <label className="block text-gray-400 text-xs font-medium mb-1.5">
+                    <label className="block text-gray-400 light:!text-gray-600 text-xs font-medium mb-1.5">
                       Preferred Time
                     </label>
                     <input
                       type="time"
                       {...register("preferredTime")}
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500/50"
+                      className="w-full bg-white/5 light:!bg-gray-100 border border-white/10 light:!border-gray-200 rounded-lg px-3.5 py-2.5 text-sm text-white light:!text-gray-900 focus:outline-none focus:border-indigo-500/50"
                     />
                     {errors.preferredTime && (
                       <p className="text-red-400 text-xs mt-1">{errors.preferredTime.message}</p>
@@ -189,13 +189,13 @@ const BookingModal = () => {
                 </div>
 
                 <div>
-                  <label className="block text-gray-400 text-xs font-medium mb-1.5">
+                  <label className="block text-gray-400 light:!text-gray-600 text-xs font-medium mb-1.5">
                     Reason for Visit (optional)
                   </label>
                   <textarea
                     {...register("reason")}
                     rows={3}
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-indigo-500/50 resize-none"
+                    className="w-full bg-white/5 light:!bg-gray-100 border border-white/10 light:!border-gray-200 rounded-lg px-3.5 py-2.5 text-sm text-white light:!text-gray-900 placeholder-gray-600 light:placeholder-gray-400 focus:outline-none focus:border-indigo-500/50 resize-none"
                     placeholder="Briefly describe your concern..."
                   />
                 </div>

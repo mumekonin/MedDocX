@@ -20,8 +20,8 @@ const DoctorTable = () => {
     <div>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-white text-2xl font-bold">Doctors</h1>
-          <p className="text-gray-500 text-sm mt-1">Manage the specialists shown on your site.</p>
+          <h1 className="text-white light:!text-gray-900 text-2xl font-bold">Doctors</h1>
+          <p className="text-gray-500 light:!text-gray-600 text-sm mt-1">Manage the specialists shown on your site.</p>
         </div>
         <button
           onClick={() => setIsCreating(true)}
@@ -31,20 +31,20 @@ const DoctorTable = () => {
         </button>
       </div>
 
-      {isLoading && <p className="text-gray-500 text-sm">Loading doctors...</p>}
+      {isLoading && <p className="text-gray-500 light:!text-gray-600 text-sm">Loading doctors...</p>}
       {isError && <p className="text-red-400 text-sm">Couldn't load doctors right now.</p>}
 
       {doctors && doctors.length === 0 && (
-        <p className="text-gray-500 text-sm">No doctors added yet.</p>
+        <p className="text-gray-500 light:!text-gray-600 text-sm">No doctors added yet.</p>
       )}
 
       {doctors && doctors.length > 0 && (
         <>
           {/* Desktop table */}
-          <div className="hidden md:block bg-white/[0.03] border border-white/10 rounded-2xl overflow-hidden">
+          <div className="hidden md:block bg-white/[0.03] light:!bg-gray-100 border border-white/10 light:!border-gray-200 rounded-2xl overflow-hidden">
             <table className="w-full text-left">
               <thead>
-                <tr className="border-b border-white/10 text-gray-500 text-xs uppercase tracking-wide">
+                <tr className="border-b border-white/10 light:!border-gray-200 text-gray-500 light:!text-gray-600 text-xs uppercase tracking-wide">
                   <th className="px-5 py-3.5 font-medium">Doctor</th>
                   <th className="px-5 py-3.5 font-medium">Specialty</th>
                   <th className="px-5 py-3.5 font-medium">Status</th>
@@ -53,14 +53,14 @@ const DoctorTable = () => {
               </thead>
               <tbody>
                 {doctors.map((doctor) => (
-                  <tr key={doctor.id} className="border-b border-white/5 last:border-0">
+                  <tr key={doctor.id} className="border-b border-white/5 light:!border-gray-200 last:border-0">
                     <td className="px-5 py-3.5">
                       <div className="flex items-center gap-3">
                         <img src={doctor.photoUrl} alt={doctor.name} className="w-10 h-10 rounded-full object-cover" />
-                        <span className="text-white text-sm font-medium">{doctor.name}</span>
+                        <span className="text-white light:!text-gray-900 text-sm font-medium">{doctor.name}</span>
                       </div>
                     </td>
-                    <td className="px-5 py-3.5 text-gray-400 text-sm">{doctor.specialty}</td>
+                    <td className="px-5 py-3.5 text-gray-400 light:!text-gray-600 text-sm">{doctor.specialty}</td>
                     <td className="px-5 py-3.5">
                       <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${doctor.isActive ? "bg-green-500/10 text-green-400" : "bg-gray-500/10 text-gray-400"}`}>
                         {doctor.isActive ? "Active" : "Hidden"}
@@ -68,10 +68,10 @@ const DoctorTable = () => {
                     </td>
                     <td className="px-5 py-3.5">
                       <div className="flex items-center justify-end gap-2">
-                        <button onClick={() => setEditingDoctor(doctor)} className="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-gray-400 hover:text-white transition-colors" aria-label="Edit">
+                        <button onClick={() => setEditingDoctor(doctor)} className="w-8 h-8 rounded-lg bg-white/5 light:!bg-white hover:bg-white/10 light:hover:!bg-gray-200 flex items-center justify-center text-gray-400 light:!text-gray-600 hover:text-white light:hover:!text-gray-900 transition-colors" aria-label="Edit">
                           <Pencil className="w-3.5 h-3.5" />
                         </button>
-                        <button onClick={() => setDeleteTarget(doctor)} className="w-8 h-8 rounded-lg bg-white/5 hover:bg-red-500/10 flex items-center justify-center text-gray-400 hover:text-red-400 transition-colors" aria-label="Delete">
+                        <button onClick={() => setDeleteTarget(doctor)} className="w-8 h-8 rounded-lg bg-white/5 light:!bg-white hover:bg-red-500/10 flex items-center justify-center text-gray-400 light:!text-gray-600 hover:text-red-400 transition-colors" aria-label="Delete">
                           <Trash2 className="w-3.5 h-3.5" />
                         </button>
                       </div>
@@ -85,22 +85,22 @@ const DoctorTable = () => {
           {/* Mobile cards */}
           <div className="md:hidden space-y-3">
             {doctors.map((doctor) => (
-              <div key={doctor.id} className="bg-white/[0.03] border border-white/10 rounded-2xl p-4">
+              <div key={doctor.id} className="bg-white/[0.03] light:!bg-gray-100 border border-white/10 light:!border-gray-200 rounded-2xl p-4">
                 <div className="flex items-center gap-3 mb-3">
                   <img src={doctor.photoUrl} alt={doctor.name} className="w-12 h-12 rounded-full object-cover" />
                   <div className="flex-1 min-w-0">
-                    <p className="text-white text-sm font-medium truncate">{doctor.name}</p>
-                    <p className="text-gray-400 text-xs">{doctor.specialty}</p>
+                    <p className="text-white light:!text-gray-900 text-sm font-medium truncate">{doctor.name}</p>
+                    <p className="text-gray-400 light:!text-gray-600 text-xs">{doctor.specialty}</p>
                   </div>
                   <span className={`text-xs font-medium px-2.5 py-1 rounded-full shrink-0 ${doctor.isActive ? "bg-green-500/10 text-green-400" : "bg-gray-500/10 text-gray-400"}`}>
                     {doctor.isActive ? "Active" : "Hidden"}
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <button onClick={() => setEditingDoctor(doctor)} className="flex-1 flex items-center justify-center gap-1.5 bg-white/5 hover:bg-white/10 text-gray-300 text-xs font-medium py-2 rounded-lg transition-colors">
+                  <button onClick={() => setEditingDoctor(doctor)} className="flex-1 flex items-center justify-center gap-1.5 bg-white/5 light:!bg-white hover:bg-white/10 light:hover:!bg-gray-200 text-gray-300 light:!text-gray-600 text-xs font-medium py-2 rounded-lg transition-colors">
                     <Pencil className="w-3.5 h-3.5" /> Edit
                   </button>
-                  <button onClick={() => setDeleteTarget(doctor)} className="flex-1 flex items-center justify-center gap-1.5 bg-white/5 hover:bg-red-500/10 text-gray-300 hover:text-red-400 text-xs font-medium py-2 rounded-lg transition-colors">
+                  <button onClick={() => setDeleteTarget(doctor)} className="flex-1 flex items-center justify-center gap-1.5 bg-white/5 light:!bg-white hover:bg-red-500/10 text-gray-300 light:!text-gray-600 hover:text-red-400 text-xs font-medium py-2 rounded-lg transition-colors">
                     <Trash2 className="w-3.5 h-3.5" /> Delete
                   </button>
                 </div>
@@ -123,16 +123,16 @@ const DoctorTable = () => {
       {deleteTarget && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setDeleteTarget(null)} />
-          <div className="relative bg-[#0d0d14] border border-white/10 rounded-2xl w-full max-w-sm p-6">
-            <h3 className="text-white font-bold mb-2">Delete Doctor</h3>
-            <p className="text-gray-400 text-sm mb-6">
-              Are you sure you want to delete <span className="text-white">{deleteTarget.name}</span>?
+          <div className="relative bg-[#0d0d14] light:!bg-white border border-white/10 light:!border-gray-200 rounded-2xl w-full max-w-sm p-6">
+            <h3 className="text-white light:!text-gray-900 font-bold mb-2">Delete Doctor</h3>
+            <p className="text-gray-400 light:!text-gray-600 text-sm mb-6">
+              Are you sure you want to delete <span className="text-white light:!text-gray-900">{deleteTarget.name}</span>?
               This can't be undone.
             </p>
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setDeleteTarget(null)}
-                className="flex-1 bg-white/5 hover:bg-white/10 text-gray-300 text-sm font-medium py-2.5 rounded-full transition-colors"
+                className="flex-1 bg-white/5 light:!bg-gray-100 hover:bg-white/10 light:hover:!bg-gray-200 text-gray-300 light:!text-gray-600 text-sm font-medium py-2.5 rounded-full transition-colors"
               >
                 Cancel
               </button>

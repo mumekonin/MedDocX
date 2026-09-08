@@ -67,40 +67,40 @@ const SettingsPage = () => {
   return (
     <div className="max-w-2xl">
       <div className="mb-8">
-        <h1 className="text-white text-2xl font-bold">Settings</h1>
-        <p className="text-gray-500 text-sm mt-1">Manage your site details and account.</p>
+        <h1 className="text-white light:!text-gray-900 text-2xl font-bold">Settings</h1>
+        <p className="text-gray-500 light:!text-gray-600 text-sm mt-1">Manage your site details and account.</p>
       </div>
 
       <div className="space-y-6">
         {/* Site Stats */}
-        <section className="bg-white/[0.03] border border-white/10 rounded-2xl p-6">
+        <section className="bg-white/[0.03] light:!bg-gray-100 border border-white/10 light:!border-gray-200 rounded-2xl p-6">
           <div className="flex items-center gap-2.5 mb-5">
             <BarChart3 className="w-4.5 h-4.5 text-indigo-400" />
-            <h2 className="text-white font-semibold">Homepage Stats</h2>
+            <h2 className="text-white light:!text-gray-900 font-semibold">Homepage Stats</h2>
           </div>
           <form onSubmit={statsForm.handleSubmit(onSaveStats)} className="space-y-4">
             <div className="grid grid-cols-3 gap-4">
               <div>
-                <label className="block text-gray-400 text-xs font-medium mb-1.5">Patients</label>
+                <label className="block text-gray-400 light:!text-gray-600 text-xs font-medium mb-1.5">Patients</label>
                 <input
                   {...statsForm.register("patientsCount")}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500/50"
+                  className="w-full bg-white/5 light:!bg-white border border-white/10 light:!border-gray-200 rounded-lg px-3 py-2.5 text-sm text-white light:!text-gray-900 focus:outline-none focus:border-indigo-500/50"
                   placeholder="3,000+"
                 />
               </div>
               <div>
-                <label className="block text-gray-400 text-xs font-medium mb-1.5">Doctors</label>
+                <label className="block text-gray-400 light:!text-gray-600 text-xs font-medium mb-1.5">Doctors</label>
                 <input
                   {...statsForm.register("doctorsCount")}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500/50"
+                  className="w-full bg-white/5 light:!bg-white border border-white/10 light:!border-gray-200 rounded-lg px-3 py-2.5 text-sm text-white light:!text-gray-900 focus:outline-none focus:border-indigo-500/50"
                   placeholder="50+"
                 />
               </div>
               <div>
-                <label className="block text-gray-400 text-xs font-medium mb-1.5">Emergency Care</label>
+                <label className="block text-gray-400 light:!text-gray-600 text-xs font-medium mb-1.5">Emergency Care</label>
                 <input
                   {...statsForm.register("emergencyCareLabel")}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500/50"
+                  className="w-full bg-white/5 light:!bg-white border border-white/10 light:!border-gray-200 rounded-lg px-3 py-2.5 text-sm text-white light:!text-gray-900 focus:outline-none focus:border-indigo-500/50"
                   placeholder="24/7"
                 />
               </div>
@@ -120,10 +120,10 @@ const SettingsPage = () => {
         </section>
 
         {/* Profile */}
-        <section className="bg-white/[0.03] border border-white/10 rounded-2xl p-6">
+        <section className="bg-white/[0.03] light:!bg-gray-100 border border-white/10 light:!border-gray-200 rounded-2xl p-6">
           <div className="flex items-center gap-2.5 mb-5">
             <User className="w-4.5 h-4.5 text-indigo-400" />
-            <h2 className="text-white font-semibold">Profile</h2>
+            <h2 className="text-white light:!text-gray-900 font-semibold">Profile</h2>
           </div>
           {profileError && (
             <div className="bg-red-500/10 border border-red-500/20 text-red-400 text-sm rounded-lg px-4 py-2.5 mb-4">
@@ -133,21 +133,21 @@ const SettingsPage = () => {
           <form onSubmit={profileForm.handleSubmit(onSaveProfile)} className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-gray-400 text-xs font-medium mb-1.5">Name</label>
+                <label className="block text-gray-400 light:!text-gray-600 text-xs font-medium mb-1.5">Name</label>
                 <input
                   {...profileForm.register("name")}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500/50"
+                  className="w-full bg-white/5 light:!bg-white border border-white/10 light:!border-gray-200 rounded-lg px-3.5 py-2.5 text-sm text-white light:!text-gray-900 focus:outline-none focus:border-indigo-500/50"
                 />
                 {profileForm.formState.errors.name && (
                   <p className="text-red-400 text-xs mt-1">{profileForm.formState.errors.name.message}</p>
                 )}
               </div>
               <div>
-                <label className="block text-gray-400 text-xs font-medium mb-1.5">Email</label>
+                <label className="block text-gray-400 light:!text-gray-600 text-xs font-medium mb-1.5">Email</label>
                 <input
                   type="email"
                   {...profileForm.register("email")}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500/50"
+                  className="w-full bg-white/5 light:!bg-white border border-white/10 light:!border-gray-200 rounded-lg px-3.5 py-2.5 text-sm text-white light:!text-gray-900 focus:outline-none focus:border-indigo-500/50"
                 />
                 {profileForm.formState.errors.email && (
                   <p className="text-red-400 text-xs mt-1">{profileForm.formState.errors.email.message}</p>
@@ -169,10 +169,10 @@ const SettingsPage = () => {
         </section>
 
         {/* Password */}
-        <section className="bg-white/[0.03] border border-white/10 rounded-2xl p-6">
+        <section className="bg-white/[0.03] light:!bg-gray-100 border border-white/10 light:!border-gray-200 rounded-2xl p-6">
           <div className="flex items-center gap-2.5 mb-5">
             <Lock className="w-4.5 h-4.5 text-indigo-400" />
-            <h2 className="text-white font-semibold">Change Password</h2>
+            <h2 className="text-white light:!text-gray-900 font-semibold">Change Password</h2>
           </div>
           {passwordError && (
             <div className="bg-red-500/10 border border-red-500/20 text-red-400 text-sm rounded-lg px-4 py-2.5 mb-4">
@@ -181,11 +181,11 @@ const SettingsPage = () => {
           )}
           <form onSubmit={passwordForm.handleSubmit(onChangePassword)} className="space-y-4">
             <div>
-              <label className="block text-gray-400 text-xs font-medium mb-1.5">Current Password</label>
+              <label className="block text-gray-400 light:!text-gray-600 text-xs font-medium mb-1.5">Current Password</label>
               <input
                 type="password"
                 {...passwordForm.register("currentPassword")}
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500/50"
+                className="w-full bg-white/5 light:!bg-white border border-white/10 light:!border-gray-200 rounded-lg px-3.5 py-2.5 text-sm text-white light:!text-gray-900 focus:outline-none focus:border-indigo-500/50"
               />
               {passwordForm.formState.errors.currentPassword && (
                 <p className="text-red-400 text-xs mt-1">{passwordForm.formState.errors.currentPassword.message}</p>
@@ -193,22 +193,22 @@ const SettingsPage = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-gray-400 text-xs font-medium mb-1.5">New Password</label>
+                <label className="block text-gray-400 light:!text-gray-600 text-xs font-medium mb-1.5">New Password</label>
                 <input
                   type="password"
                   {...passwordForm.register("newPassword")}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500/50"
+                  className="w-full bg-white/5 light:!bg-white border border-white/10 light:!border-gray-200 rounded-lg px-3.5 py-2.5 text-sm text-white light:!text-gray-900 focus:outline-none focus:border-indigo-500/50"
                 />
                 {passwordForm.formState.errors.newPassword && (
                   <p className="text-red-400 text-xs mt-1">{passwordForm.formState.errors.newPassword.message}</p>
                 )}
               </div>
               <div>
-                <label className="block text-gray-400 text-xs font-medium mb-1.5">Confirm New Password</label>
+                <label className="block text-gray-400 light:!text-gray-600 text-xs font-medium mb-1.5">Confirm New Password</label>
                 <input
                   type="password"
                   {...passwordForm.register("confirmPassword")}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500/50"
+                  className="w-full bg-white/5 light:!bg-white border border-white/10 light:!border-gray-200 rounded-lg px-3.5 py-2.5 text-sm text-white light:!text-gray-900 focus:outline-none focus:border-indigo-500/50"
                 />
                 {passwordForm.formState.errors.confirmPassword && (
                   <p className="text-red-400 text-xs mt-1">{passwordForm.formState.errors.confirmPassword.message}</p>

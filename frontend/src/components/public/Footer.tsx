@@ -50,12 +50,12 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#0a0a0f] border-t border-white/10 px-6 pt-16 pb-8">
+    <footer className="bg-[#0a0a0f] light:!bg-white border-t border-white/10 light:!border-gray-200 px-6 pt-16 pb-8">
       <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-10">
         {/* Brand + newsletter */}
         <div>
           <img src={logo} alt="MedDocX" className="h-9 w-auto mb-4" />
-          <p className="text-gray-400 text-sm leading-relaxed mb-5">
+          <p className="text-gray-400 light:!text-gray-600 text-sm leading-relaxed mb-5">
             Compassionate healthcare, trusted specialists, and modern medical care
             for every stage of life.
           </p>
@@ -71,7 +71,7 @@ const Footer = () => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter Email Id"
               required
-              className="w-full bg-white/5 border border-white/10 rounded-full pl-4 pr-11 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500/50 transition-colors"
+              className="w-full bg-white/5 light:!bg-gray-100 border border-white/10 light:!border-gray-200 rounded-full pl-4 pr-11 py-2.5 text-sm text-white light:!text-gray-900 placeholder-gray-500 light:placeholder-gray-400 focus:outline-none focus:border-indigo-500/50 transition-colors"
             />
             <button
               type="submit"
@@ -90,7 +90,7 @@ const Footer = () => {
                 key={label}
                 href="#"
                 aria-label={label}
-                className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-indigo-500/40 hover:bg-white/10 transition-colors"
+                className="w-8 h-8 rounded-full bg-white/5 light:!bg-gray-100 border border-white/10 light:!border-gray-200 flex items-center justify-center text-gray-400 light:!text-gray-600 hover:text-white light:hover:text-gray-900 hover:border-indigo-500/40 hover:bg-white/10 light:hover:!bg-gray-200 transition-colors"
               >
                 <Icon className="w-3.5 h-3.5" />
               </a>
@@ -100,11 +100,11 @@ const Footer = () => {
 
         {/* Links */}
         <div>
-          <h4 className="text-white font-semibold text-sm mb-4">Links</h4>
+          <h4 className="text-white light:!text-gray-900 font-semibold text-sm mb-4">Links</h4>
           <ul className="space-y-2.5">
             {footerLinks.map((link) => (
               <li key={link.label}>
-                <Link to={link.to} className="text-gray-400 hover:text-white text-sm transition-colors">
+                <Link to={link.to} className="text-gray-400 light:!text-gray-600 hover:text-white light:hover:!text-gray-900 text-sm transition-colors">
                   {link.label}
                 </Link>
               </li>
@@ -114,11 +114,11 @@ const Footer = () => {
 
         {/* Our Services */}
         <div>
-          <h4 className="text-white font-semibold text-sm mb-4">Our Services</h4>
+          <h4 className="text-white light:!text-gray-900 font-semibold text-sm mb-4">Our Services</h4>
           <ul className="space-y-2.5">
             {serviceLinks.map((service) => (
               <li key={service}>
-                <Link to="/services" className="text-gray-400 hover:text-white text-sm transition-colors">
+                <Link to="/services" className="text-gray-400 light:!text-gray-600 hover:text-white light:hover:!text-gray-900 text-sm transition-colors">
                   {service}
                 </Link>
               </li>
@@ -128,8 +128,8 @@ const Footer = () => {
 
         {/* Contact */}
         <div>
-          <h4 className="text-white font-semibold text-sm mb-4">Contact Us</h4>
-          <ul className="space-y-3 text-sm text-gray-400">
+          <h4 className="text-white light:!text-gray-900 font-semibold text-sm mb-4">Contact Us</h4>
+          <ul className="space-y-3 text-sm text-gray-400 light:!text-gray-600">
             <li className="flex items-start gap-2.5">
               <Phone className="w-4 h-4 mt-0.5 shrink-0 text-indigo-400" />
               <span>+1 (800) 555-1234</span>
@@ -146,14 +146,14 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto border-t border-white/10 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="text-gray-500 text-xs">
+      <div className="max-w-6xl mx-auto border-t border-white/10 light:!border-gray-200 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p className="text-gray-500 light:!text-gray-600 text-xs">
           Copyright © {new Date().getFullYear()} MedDocX. All rights reserved.
         </p>
 
         <Link
           to="/admin/login"
-          className="inline-flex items-center gap-1.5 text-gray-600 hover:text-gray-400 text-xs transition-colors"
+          className="inline-flex items-center gap-1.5 text-gray-600 light:!text-gray-600 hover:text-gray-400 light:hover:!text-gray-900 text-xs transition-colors"
         >
           <ShieldCheck className="w-3.5 h-3.5" />
           Staff Login

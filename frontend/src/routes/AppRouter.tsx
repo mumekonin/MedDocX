@@ -17,7 +17,9 @@ import TestimonialsPage from "../pages/admin/TestimonialsPage";
 import FaqsPage from "../pages/admin/FaqsPage";
 import ContactMessagesPage from "../pages/admin/ContactMessagesPage";
 import SettingsPage from "../pages/admin/SettingsPage";
-
+import AboutPage from "../pages/public/AboutPage";
+import DoctorsListPage from "../pages/public/DoctorsListPage";
+import DoctorDetailPage from "../pages/public/DoctorDetailPage";
 const AppRouter = () => {
   return (
     <Routes>
@@ -28,6 +30,9 @@ const AppRouter = () => {
       <Route path="/blog/:slug" element={<BlogDetailPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/admin/login" element={<LoginPage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/doctors" element={<DoctorsListPage />} />
+      <Route path="/doctors/:id" element={<DoctorDetailPage />} />
       <Route element={<ProtectedRoute />}>
         <Route element={<AdminLayout />}>
           <Route path="/admin/dashboard" element={<DashboardPage />} />

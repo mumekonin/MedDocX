@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { useBookingModal } from "../../context/BookingModalContext";
+import { useTheme } from "../../context/ThemeContext";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg";
+import { ArrowRight, Moon, Sun } from "lucide-react";
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -14,6 +16,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { openModal } = useBookingModal();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 8);
@@ -24,8 +27,8 @@ const Navbar = () => {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${isScrolled
-          ? "bg-[#0a0a0f]/95 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/20"
-          : "bg-[#0a0a0f]/70 backdrop-blur-sm"
+        ? "bg-[#0a0a0f]/95 light:bg-white/95 backdrop-blur-md border-b border-white/10 light:border-gray-200 shadow-lg shadow-black/20 light:shadow-gray-200/40"
+        : "bg-[#0a0a0f]/70 light:bg-white/80 backdrop-blur-sm"
         }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -33,40 +36,53 @@ const Navbar = () => {
           <img src={logo} alt="MedDocX" className="h-9 w-auto" />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-9 text-sm font-medium text-gray-300">
+        <nav className="hidden md:flex items-center gap-9 text-sm font-medium text-gray-300 light:text-gray-600">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.to}
-              className="relative hover:text-white transition-colors after:absolute after:left-0 after:-bottom-1 after:h-[1.5px] after:w-0 after:bg-indigo-400 after:transition-all hover:after:w-full"
+              className="relative hover:text-white light:hover:text-gray-900 transition-colors after:absolute after:left-0 after:-bottom-1 after:h-[1.5px] after:w-0 after:bg-indigo-400 after:transition-all hover:after:w-full"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        <button onClick={openModal} className="hidden md:inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors shadow-md shadow-blue-600/20">
-          Book Appointment
-          <span className="text-xs">↗</span>
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            className="w-10 h-10 rounded-full border border-white/10 light:border-gray-200 bg-white/5 light:bg-gray-100 text-gray-300 light:text-gray-600 hover:text-white light:hover:text-gray-900 hover:border-indigo-500/40 transition-colors flex items-center justify-center"
+          >
+            {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+          </button>
 
-        <button
-          className="md:hidden text-white text-xl"
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? "✕" : "☰"}
-        </button>
+          <button onClick={openModal} className="hidden md:inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors shadow-md shadow-blue-600/20">
+            Book Appointment
+            <span className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center">
+                <ArrowRight className="w-4 h-4" />
+             </span>
+          </button>
+
+          <button
+            className="md:hidden text-white light:text-gray-900 text-xl"
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? "✕" : "☰"}
+          </button>
+        </div>
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden bg-[#0a0a0f]/98 backdrop-blur-md border-t border-white/10 px-6 py-6 flex flex-col gap-5">
+        <div className="md:hidden bg-[#0a0a0f]/98 light:bg-white/98 backdrop-blur-md border-t border-white/10 light:border-gray-200 px-6 py-6 flex flex-col gap-5">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.to}
               onClick={() => setIsMenuOpen(false)}
-              className="text-gray-300 hover:text-white text-sm font-medium"
+              className="text-gray-300 light:text-gray-600 hover:text-white light:hover:text-gray-900 text-sm font-medium"
             >
               {link.label}
             </a>

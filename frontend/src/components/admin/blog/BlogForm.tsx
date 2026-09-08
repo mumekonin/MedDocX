@@ -61,17 +61,17 @@ const BlogForm = ({ post, onClose }: BlogFormProps) => {
     <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
 
-      <div className="relative bg-[#0d0d14] border border-white/10 rounded-2xl w-full max-w-xl max-h-[85vh] overflow-y-auto">
+      <div className="relative bg-[#0d0d14] light:!bg-white border border-white/10 light:!border-gray-200 rounded-2xl w-full max-w-xl max-h-[85vh] overflow-y-auto">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+          className="absolute top-4 right-4 text-gray-400 light:!text-gray-600 hover:text-white light:hover:!text-gray-900 transition-colors"
           aria-label="Close"
         >
           <X className="w-5 h-5" />
         </button>
 
         <div className="p-7">
-          <h3 className="text-white font-bold text-lg mb-6">
+          <h3 className="text-white light:!text-gray-900 font-bold text-lg mb-6">
             {isEditing ? "Edit Article" : "Write New Article"}
           </h3>
 
@@ -83,15 +83,15 @@ const BlogForm = ({ post, onClose }: BlogFormProps) => {
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div>
-              <label className="block text-gray-400 text-xs font-medium mb-1.5">Title</label>
+              <label className="block text-gray-400 light:!text-gray-600 text-xs font-medium mb-1.5">Title</label>
               <input
                 {...register("title")}
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-indigo-500/50"
+                className="w-full bg-white/5 light:!bg-gray-100 border border-white/10 light:!border-gray-200 rounded-lg px-3.5 py-2.5 text-sm text-white light:!text-gray-900 placeholder-gray-600 light:placeholder-gray-400 focus:outline-none focus:border-indigo-500/50"
                 placeholder="Heart Health Made Simple"
               />
               {errors.title && <p className="text-red-400 text-xs mt-1">{errors.title.message}</p>}
               {isEditing && (
-                <p className="text-gray-600 text-xs mt-1">
+                <p className="text-gray-600 light:!text-gray-500 text-xs mt-1">
                   Current URL: /blog/{post.slug} — changing the title updates this automatically.
                 </p>
               )}
@@ -99,20 +99,20 @@ const BlogForm = ({ post, onClose }: BlogFormProps) => {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-gray-400 text-xs font-medium mb-1.5">Author</label>
+                <label className="block text-gray-400 light:!text-gray-600 text-xs font-medium mb-1.5">Author</label>
                 <input
                   {...register("author")}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-indigo-500/50"
+                  className="w-full bg-white/5 light:!bg-gray-100 border border-white/10 light:!border-gray-200 rounded-lg px-3.5 py-2.5 text-sm text-white light:!text-gray-900 placeholder-gray-600 light:placeholder-gray-400 focus:outline-none focus:border-indigo-500/50"
                   placeholder="Dr. Ethan Williams"
                 />
                 {errors.author && <p className="text-red-400 text-xs mt-1">{errors.author.message}</p>}
               </div>
               <div>
-                <label className="block text-gray-400 text-xs font-medium mb-1.5">Publish Date</label>
+                <label className="block text-gray-400 light:!text-gray-600 text-xs font-medium mb-1.5">Publish Date</label>
                 <input
                   type="date"
                   {...register("publishDate")}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500/50"
+                  className="w-full bg-white/5 light:!bg-gray-100 border border-white/10 light:!border-gray-200 rounded-lg px-3.5 py-2.5 text-sm text-white light:!text-gray-900 focus:outline-none focus:border-indigo-500/50"
                 />
                 {errors.publishDate && (
                   <p className="text-red-400 text-xs mt-1">{errors.publishDate.message}</p>
@@ -121,29 +121,29 @@ const BlogForm = ({ post, onClose }: BlogFormProps) => {
             </div>
 
             <div>
-              <label className="block text-gray-400 text-xs font-medium mb-1.5">Excerpt</label>
+              <label className="block text-gray-400 light:!text-gray-600 text-xs font-medium mb-1.5">Excerpt</label>
               <textarea
                 {...register("excerpt")}
                 rows={2}
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-indigo-500/50 resize-none"
+                className="w-full bg-white/5 light:!bg-gray-100 border border-white/10 light:!border-gray-200 rounded-lg px-3.5 py-2.5 text-sm text-white light:!text-gray-900 placeholder-gray-600 light:placeholder-gray-400 focus:outline-none focus:border-indigo-500/50 resize-none"
                 placeholder="Short summary shown on blog cards"
               />
               {errors.excerpt && <p className="text-red-400 text-xs mt-1">{errors.excerpt.message}</p>}
             </div>
 
             <div>
-              <label className="block text-gray-400 text-xs font-medium mb-1.5">Content</label>
+              <label className="block text-gray-400 light:!text-gray-600 text-xs font-medium mb-1.5">Content</label>
               <textarea
                 {...register("content")}
                 rows={8}
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-indigo-500/50 resize-none"
+                className="w-full bg-white/5 light:!bg-gray-100 border border-white/10 light:!border-gray-200 rounded-lg px-3.5 py-2.5 text-sm text-white light:!text-gray-900 placeholder-gray-600 light:placeholder-gray-400 focus:outline-none focus:border-indigo-500/50 resize-none"
                 placeholder="Full article body..."
               />
               {errors.content && <p className="text-red-400 text-xs mt-1">{errors.content.message}</p>}
             </div>
 
             <div>
-              <label className="block text-gray-400 text-xs font-medium mb-1.5">
+              <label className="block text-gray-400 light:!text-gray-600 text-xs font-medium mb-1.5">
                 Cover Image {isEditing ? "(leave empty to keep current)" : ""}
               </label>
               {isEditing && post.coverImageUrl && (
@@ -157,7 +157,7 @@ const BlogForm = ({ post, onClose }: BlogFormProps) => {
                 type="file"
                 accept="image/*"
                 {...register("coverImage")}
-                className="w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-indigo-500/10 file:text-indigo-400 file:text-sm hover:file:bg-indigo-500/20 file:cursor-pointer cursor-pointer"
+                className="w-full text-sm text-gray-400 light:!text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-indigo-500/10 file:text-indigo-400 file:text-sm hover:file:bg-indigo-500/20 file:cursor-pointer cursor-pointer"
               />
             </div>
 
@@ -167,7 +167,7 @@ const BlogForm = ({ post, onClose }: BlogFormProps) => {
                 {...register("isPublished")}
                 className="w-4 h-4 rounded accent-indigo-500"
               />
-              <span className="text-gray-300 text-sm">
+              <span className="text-gray-300 light:!text-gray-600 text-sm">
                 Published (visible on public site)
               </span>
             </label>
